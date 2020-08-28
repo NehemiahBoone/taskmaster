@@ -17,6 +17,12 @@ class TasksService {
     item.items.push(newItem)
   }
 
+  removeItem(itemId, itemName) {
+    let task = STORE.State.Tasks.find(i => i.id == itemId)
+    let itemIndex = task.items.findIndex(i => i == itemName)
+    task.items.splice(itemIndex, 1)
+  }
+
 }
 
 const SERVICE = new TasksService();
