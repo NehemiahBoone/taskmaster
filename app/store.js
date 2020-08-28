@@ -7,6 +7,9 @@ let _state = {
 };
 
 class Store {
+  constructor() {
+
+  }
   /**
    * Provides access to application state data
    */
