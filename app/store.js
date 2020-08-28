@@ -18,6 +18,10 @@ class Store {
   get State() {
     return _state;
   }
+
+  saveState() {
+    localStorage.setItem("tasks", JSON.stringify(_state))
+  }
 }
 
 const STORE = new Store();
