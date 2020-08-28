@@ -9,22 +9,22 @@ class TasksService {
 
   createTask(rawTask) {
     let newTask = new Task(rawTask)
-    STORE.State.Tasks.push(newTask)
+    STORE.State.tasks.push(newTask)
   }
 
   createItem(newItem, itemId) {
-    let item = STORE.State.Tasks.find(i => i.id == itemId)
+    let item = STORE.State.tasks.find(i => i.id == itemId)
     item.items.push(newItem)
   }
 
   removeItem(itemId, itemName) {
-    let task = STORE.State.Tasks.find(i => i.id == itemId)
+    let task = STORE.State.tasks.find(i => i.id == itemId)
     let itemIndex = task.items.findIndex(i => i == itemName)
     task.items.splice(itemIndex, 1)
   }
 
   removeTask(id) {
-    STORE.State.Tasks = STORE.State.Tasks.filter(t => t.id != id)
+    STORE.State.tasks = STORE.State.tasks.filter(t => t.id != id)
   }
 }
 

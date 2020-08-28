@@ -3,8 +3,9 @@ import STORE from "../store.js"
 
 //Private
 function _drawList() {
+  STORE.saveState()
   let template = ""
-  STORE.State.Tasks.forEach(l => template += l.Template)
+  STORE.State.tasks.forEach(l => template += l.Template)
   document.getElementById("tasks").innerHTML = template
 }
 
