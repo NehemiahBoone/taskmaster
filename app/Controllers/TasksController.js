@@ -17,6 +17,19 @@ export default class TasksController {
     _drawList()
   }
 
+  createItem(event, itemId) {
+    event.preventDefault()
+    let form = event.target
+    let newItem = form.item.value
+    TasksService.createItem(newItem, itemId)
+    _drawList()
+  }
+
+  removeItem(itemId, itemName) {
+    TasksService.removeItem(itemId, itemName)
+    _drawList()
+  }
+
   createTask(event) {
     event.preventDefault()
     let form = event.target

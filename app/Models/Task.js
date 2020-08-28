@@ -1,20 +1,24 @@
 import { generateId } from "../utils.js"
 
 export default class Task {
-  constructor({ taskName, color }) {
+  constructor({ taskName, color, items }) {
     this.taskName = taskName
     this.color = color
     this.id = generateId()
+    this.items = items || []
   }
 
   get Template() {
     return `
         <div class="col-4 card text-white bg-${this.color} mb-3 mx-3 custom-card">
-          <div class="card-header">${this.taskName}</div>
+          <div class="card-header">${this.taskName}<i class="fas fa-times mx-2"></i></div>
           <div class="card-body d-flex flex-column">
-            <form onsubmit="app.tasksContoller.createItem" class="m-1 mt-auto">
+            <ul>
+              ${this.ItemsTemplate}
+            </ul>
+            <form onsubmit="app.tasksController.createItem(event, '${this.id}')" class="m-1 mt-auto">
               <div class="form-group p-1">
-                <input type="text" name="addTask" id="addTask" class="form-control" placeholder="Add task...">
+                <input type="text" name="item" id="item" class="form-control" placeholder="Add Item...">
                 <button type="submit" class="btn btn-light my-1">Create</button>
               </div>
             </form>
@@ -22,4 +26,13 @@ export default class Task {
         </div>
     `
   }
+
+  get ItemsTemplate() {
+    let template = ""
+    this.items.forEach(i => {
+      template += `<li>${i}<i class="fas fa-times mx-2" onclick="app.tasksController.removeItem('${this.id}', '${i}')"></i></li>`
+    })
+    return template
+  }
+
 }
