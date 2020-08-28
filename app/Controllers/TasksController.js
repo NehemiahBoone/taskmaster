@@ -40,4 +40,9 @@ export default class TasksController {
     TasksService.createTask(rawTask)
     _drawList()
   }
+
+  removeTask(id) {
+    TasksService.removeTask(id)
+    _drawList()
+  }
 }

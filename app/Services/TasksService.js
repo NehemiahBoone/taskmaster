@@ -23,6 +23,9 @@ class TasksService {
     task.items.splice(itemIndex, 1)
   }
 
+  removeTask(id) {
+    STORE.State.Tasks = STORE.State.Tasks.filter(t => t.id != id)
+  }
 }
 
 const SERVICE = new TasksService();
