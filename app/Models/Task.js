@@ -1,35 +1,25 @@
 import { generateId } from "../utils.js"
 
 export default class Task {
-  constructor({ listName, listItem, addItem, id }) {
-    this.listName = listName
-    this.listItem = listItem
-    this.id = id || generateId()
-    this.addItem = addItem || []
+  constructor({ taskName, color }) {
+    this.taskName = taskName
+    this.color = color
+    this.id = generateId()
   }
 
   get Template() {
     return `
-    <div class="col-4">
-        <div class="card text-white bg-success mb-3">
-          <div class="card-header">${this.listName}</div>
-          <div class="card-body">
-            <ul class="list-group list-group-flush bg-success">
-             ${this.listItemTemplate}
-            </ul>
+        <div class="col-4 card text-white bg-${this.color} mb-3 mx-3 custom-card">
+          <div class="card-header">${this.taskName}</div>
+          <div class="card-body d-flex flex-column">
+            <form onsubmit="app.tasksContoller.createItem" class="m-1 mt-auto">
+              <div class="form-group p-1">
+                <input type="text" name="addTask" id="addTask" class="form-control" placeholder="Add task...">
+                <button type="submit" class="btn btn-light my-1">Create</button>
+              </div>
+            </form>
           </div>
         </div>
-      </div>
     `
-  }
-
-  get listItemTemplate() {
-    let template = ""
-    this.listItem.forEach(l => {
-      template += `
-        <li class="list-group-item">${this.listItem}</li>
-      `
-    })
-    return template
   }
 }

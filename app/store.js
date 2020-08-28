@@ -1,9 +1,11 @@
 import Task from "./Models/Task.js";
 
 let _state = {
-  activeValue: new Task({ title: "Task" }),
   /** @type {Task[]} */
-  tasks: []
+  Tasks: [
+    new Task({ taskName: "Chores", color: "warning" }),
+    new Task({ taskName: "Homework", color: "danger" })
+  ]
 };
 
 class Store {
