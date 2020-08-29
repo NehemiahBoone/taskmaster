@@ -27,7 +27,10 @@ export default class TasksController {
   }
 
   removeItem(itemId, itemName) {
-    TasksService.removeItem(itemId, itemName)
+    let result = confirm("Are you sure you want to delete this item?")
+    if (result) {
+      TasksService.removeItem(itemId, itemName)
+    }
     _drawList()
   }
 
@@ -43,7 +46,10 @@ export default class TasksController {
   }
 
   removeTask(id) {
-    TasksService.removeTask(id)
+    let result = confirm("Are you sure you want to delete this task?")
+    if (result) {
+      TasksService.removeTask(id)
+    }
     _drawList()
   }
 }
