@@ -10,7 +10,8 @@ export default class Task {
 
   get Template() {
     return `
-        <div class="col-4 card text-white bg-${this.color} mb-3 mx-3 custom-card">
+      <div class="col-4 my-2 d-flex justify-content-center">
+        <div class="card text-white bg-${this.color} custom-card">
           <div class="card-header">${this.taskName}<i class="fas fa-times mx-2" onclick="app.tasksController.removeTask('${this.id}')"></i></div>
           <div class="card-body d-flex flex-column">
             <ul>
@@ -24,6 +25,7 @@ export default class Task {
             </form>
           </div>
         </div>
+      </div>
     `
   }
 
