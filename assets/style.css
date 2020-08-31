@@ -12,3 +12,7 @@ main {
   min-height: 50vh;
   max-width: 33vh
 }
+
+ul{
+  list-style-type: none;
+}

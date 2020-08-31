@@ -32,7 +32,7 @@ export default class Task {
   get ItemsTemplate() {
     let template = ""
     this.items.forEach(i => {
-      template += `<li>${i}<i class="fas fa-times mx-2" onclick="app.tasksController.removeItem('${this.id}', '${i}')"></i></li>`
+      template += `<li><input type="checkbox" class="mr-1">${i}<i class="fas fa-times mx-2" onclick="app.tasksController.removeItem('${this.id}', '${i}')"></i></li>`
     })
     return template
   }
