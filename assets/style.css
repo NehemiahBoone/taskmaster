@@ -17,3 +17,7 @@ main {
 ul{
   list-style-type: none;
 }
+
+.taskmaster{
+  font-family: 'Titillium Web', sans-serif;
+}
